@@ -23,3 +23,13 @@
 | && | logiczne AND |
 | \|\| | logiczne OR |
 | ! | logiczne NOT |
+
+### Falsy Values
+| wartosć | opis |
+| :---: | --- |
+| false | Boolean false |
+| 0	| Number zero |
+| "", '', `` | String - empty string |
+| null | null - the absence of any value |
+| undefined	| undefined - the primitive value |
+| NaN | NaN - not a number |
