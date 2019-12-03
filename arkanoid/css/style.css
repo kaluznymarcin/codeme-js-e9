@@ -11,33 +11,33 @@ body {
     justify-content: flex-start;
     align-content: center;
     position: fixed;
-    width: 320px;
+    width: 640px;
     top: 50%;
     left: 50%;
     font-size: 0;
     transform: translate(-50%, -50%);
     outline: none;
-    border: 1px solid #ccc;
+    border: 2px solid #252525;
 }
 
 .game .arena {
     position: relative;
     width: 100%;
-    height: 270px;
+    height: 395px;
 }
 
 .arena .bricks {
     position: absolute;
-    top: 20px;
+    top: 48px;
     width: 100%;
 }
 
 .arena .bricks .brick {
-    width: 28px;
-    height: 10px;
-    margin: 1px;
+    width: 67px;
+    height: 20px;
+    margin: 2px;
     display: inline-block;
-    border: 1px solid;
+    background-color: #ccc;
     border-radius: 3px;
 }
 
@@ -47,34 +47,34 @@ body {
 
 .arena .paddle {
     position: absolute;
-    left: 128px;
     bottom: 25px;
-    width: 62px;
-    height: 5px;
-    border: 1px solid #777;
+    width: 124px;
+    height: 12px;
+    background-color: #777;
     border-radius: 3px;
 }
 
 .arena .ball {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    border: 1px solid #955;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
+    background-color: #c00;
 }
 
 .game .panel {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    border-bottom: 1px solid #ccc;
+    background-color: #252525;
     font-family: 'Gugi', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 11px;
+    font-size: 16px;
+    color: #fff;
 }
 
 .game .panel>div {
     display: inline-flex;
-    padding: 5px;
+    padding: 12px 8px;
 }
 
 .game .panel>div span {
