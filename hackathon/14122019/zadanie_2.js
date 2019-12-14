@@ -1,5 +1,5 @@
 /**
- * 1. Napisz funkcje ktora jako parametr przymie kolekcje taka jak w stalej data
+ * 1. Napisz funkcje ktora jako parametr przyjmie kolekcje taka jak w stalej data
  * i zwroci obiekt w ktorym kluczem bedzie wartosc wlasnosci "code" a wartoscia
  * bedzie wartosc wlasnosci "mid"
  *
@@ -51,3 +51,70 @@ const data = [
     { "currency": "yuan renminbi (Chiny)", "code": "CNY", "mid": 0.5478 },
     { "currency": "SDR (MFW)", "code": "XDR", "mid": 5.2985 }
 ]
+
+function p1(collection) {
+    /*
+     // --- rozwiazanie 1;
+    const output = {};
+
+    for (let i = 0, ln = collection.length; i < ln; i += 1) {
+        const code = collection[i].code;
+        const mid = collection[i].mid;
+
+        output[code] = mid;
+    }
+
+    return output;
+    */
+    /*
+    // --- rozwiazanie 1a;
+    const output = {};
+
+    function callback(item, index) {
+        output[item.code] = item.mid;
+    }
+
+    for (let i = 0, ln = collection.length; i < ln; i += 1) {
+        callback(collection[i], i);
+    }
+
+    return output;
+    */
+
+    /*
+    // --- rozwiazanie 1a;
+    const output = {};
+
+    function callback(item, index) {
+        output[item.code] = item.mid;
+    }
+
+    collection.forEach(callback);
+
+    return output;
+    */
+
+    /*
+    // --- rozwiazanie 2;
+
+    const output = {};
+
+    collection.forEach(item => {
+        output[item.code] = item.mid
+    });
+
+    return output;
+
+    */
+
+    // --- rozwiazanie ostateczne ;)
+
+    return collection.reduce(function (output, {code, mid}) {
+        output[code] = mid;
+        return output;
+    }, {});
+}
+
+
+
+
