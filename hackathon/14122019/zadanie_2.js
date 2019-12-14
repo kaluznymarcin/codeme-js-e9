@@ -145,8 +145,3 @@ const codeMid = p1(data);
 const min = p2(codeMid); // p2(p1(data));
 
 // const min = p2b( p2a( p1(data) ) );
-=======
-
-
->>>>>>> 06a5407f4fcd45313359ce13b3892b0a13dff525
-
