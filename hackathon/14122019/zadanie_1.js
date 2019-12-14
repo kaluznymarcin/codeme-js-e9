@@ -41,3 +41,33 @@ const collection = [
     { "data": "2019-12-12", "cena": 182.32 },
     { "data": "2019-12-13", "cena": 181.71 }
 ];
+
+function pt1(data) {
+    return data.map(function (item) {
+        return item.cena;
+    });
+}
+
+function pt2(list) {
+    return list.reverse();
+}
+
+function pt3(list) {
+    console.table(list);
+}
+
+const myData = pt1(collection);
+
+const orderedData = pt2(myData);
+
+pt3(orderedData);
+
+// const fn = compose(pt3, pt2, p1)
+//fn(collection);
+pt3(
+    pt2(
+        pt1(collection)
+    )
+)
+
+
