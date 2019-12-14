@@ -1,5 +1,5 @@
 /**
- * 1. Napisz funkcje ktora jako parametr przymie kolekcje taka jak w stalej data
+ * 1. Napisz funkcje ktora jako parametr przyjmie kolekcje taka jak w stalej data
  * i zwroci obiekt w ktorym kluczem bedzie wartosc wlasnosci "code" a wartoscia
  * bedzie wartosc wlasnosci "mid"
  *
@@ -115,6 +115,7 @@ function p1(collection) {
     }, {});
 }
 
+<<<<<<< HEAD
 function p2(data) {
     const values = Object.values(data);
 
@@ -144,4 +145,8 @@ const codeMid = p1(data);
 const min = p2(codeMid); // p2(p1(data));
 
 // const min = p2b( p2a( p1(data) ) );
+=======
+
+
+>>>>>>> 06a5407f4fcd45313359ce13b3892b0a13dff525
 
