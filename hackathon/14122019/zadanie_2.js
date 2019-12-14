@@ -115,7 +115,6 @@ function p1(collection) {
     }, {});
 }
 
-
 function p2(data) {
     const values = Object.values(data);
 
@@ -124,9 +123,6 @@ function p2(data) {
     // return Math.min(...Object.values(data));
 }
 
-
-
-// -----
 function p2a(data) {
     return Object.values(data);
 }
@@ -135,7 +131,13 @@ function p2b(data) {
     return Math.min(...data);
 }
 
-// ------ 
+// ------
+
+const codeMid = p1(data);
+
+const min = p2b(
+    p2a(codeMid)
+);
 
 const codeMid = p1(data);
 
