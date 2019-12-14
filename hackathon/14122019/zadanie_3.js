@@ -173,3 +173,24 @@ const data = {
         "clouds": 1
     }]
 };
+
+function temp(obj) {
+    const { list } = obj;
+
+    return list.map(item => item && item.temp && item.temp.day);
+}
+
+function kelvin2Celsius(list) {
+    return list.map(function (item) {
+        return Math.round(item - 273.15)
+    });
+}
+
+function pressureList(data) {
+    const { list } = data;
+    return list.map( ({ pressure }) => pressure )
+}
+
+function maxPressure(list) {
+    return Math.max(...list);
+}
