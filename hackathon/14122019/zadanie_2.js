@@ -115,7 +115,7 @@ function p1(collection) {
     }, {});
 }
 
-<<<<<<< HEAD
+
 function p2(data) {
     const values = Object.values(data);
 
