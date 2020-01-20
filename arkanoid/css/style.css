@@ -82,3 +82,16 @@ body {
     display: inline-block;
     padding-left: 5px;
 }
+
+[data-score="3"] {
+    background-color: orangered;
+}
+
+
+/* [data-score="3"]::before {
+    content: attr(data-score)
+} */
+
+[data-score="5"] {
+    background-color: blue;
+}

@@ -1,4 +1,7 @@
 (function () {
+
+  let score = 0;
+
   const gameElement = document.getElementById('arkanoid');
   const refCollection = gameElement.querySelectorAll('[ref]');
 
@@ -15,13 +18,19 @@
     arena
   } = template
 
-  const brick = document.createElement('div');
-  bricks.appendChild(brick);
-  bricks.innerHTML = '<div class="brick"></div>'.repeat(27)
+  /* const brick = document.createElement('div');
+  brick.classList.add('brick');
+  bricks.appendChild(brick); */
 
-  console.log(brick)
+
+  bricks.innerHTML = Array.from(new Array(27), () => {
+
+    const score = [1, 3, 5][Math.floor(Math.random() * 3)]
+    return `<div class="brick" data-score="${score}"></div>`;
+  }).join('');
+
   const {
-    //top: arenaTop,
+    top: arenaTop,
     left: arenaLeft,
     width: arenaWidth,
     height: arenaHeight
@@ -40,8 +49,10 @@
   let deltaY = 1
 
   const onMouseMove = function (e) {
-    console.log(e.pageX - Math.round(arenaLeft))
-    paddle.style.left = `${e.pageX - Math.round(arenaLeft)}px`;
+
+    const left = e.pageX - Math.round(arenaLeft);
+    console.log(e.pageX, arenaLeft, left)
+    paddle.style.left = `${Math.min(arenaWidth - paddle.offsetWidth, Math.max(left, 0))}px`
   };
 
   paddle.addEventListener('mousedown', function () {
@@ -69,8 +80,21 @@
         alert('LOL')
       }
 
-      ball.style.top = (ball.offsetTop + deltaY) + 'px';
-      ball.style.left = `${ball.offsetLeft + deltaX}px`;
+      const x = ball.offsetLeft + deltaX
+      const y = ball.offsetTop + deltaY
+      const element = document.elementFromPoint(
+          (x + radiusBall) + arenaLeft,
+          y + arenaTop
+      )
+
+      if (element.classList.contains('brick')) {
+        element.dataset.score
+        element.dataset.bgColor
+        element.classList.add('hide')
+      }
+
+      ball.style.top = y + 'px';
+      ball.style.left = `${x}px`;
     }, 10)
 
     document.addEventListener('mousemove', onMouseMove, false);

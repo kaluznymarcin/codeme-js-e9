@@ -11,3 +11,17 @@
  * wtaw elementy listy do elementu UL
  *
  */
+
+  function task_4(data) {
+    const container = document.getElementById('app');
+    const ul = document.createElement('ul');
+    const list = Object.values(task_2(data)).map(
+      ({ name, description }) => `<li><h6>${name}</h6> ${description}</li>`
+    ).join('');
+
+    ul.innerHTML = list;
+
+    container.appendChild(ul);
+
+    return ul;
+  }

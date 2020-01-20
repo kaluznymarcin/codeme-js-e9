@@ -11,3 +11,17 @@
  *  // ...
  * }
  */
+
+  function task_3(data = breeds) {
+    return breeds.reduce((acc, { intelligence, name }) => {
+      if (!acc[intelligence]) {
+        acc[intelligence] = [];
+      }
+
+      if (!acc[intelligence].includes(name)) {
+        acc[intelligence].push(name)
+      }
+
+      return acc;
+    }, {});
+  }

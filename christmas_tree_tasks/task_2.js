@@ -14,3 +14,14 @@
  *    // ...
  * }
  */
+
+
+  function task_2(data = breeds) {
+    return data.reduce((acc, { id, name, description }) => {
+      acc[id] = {
+        name,
+        description
+      };
+      return acc
+    }, {});
+  }
