@@ -5,6 +5,11 @@ class Cycle extends Component {
     interval: 1
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log('P:: ', prevState.interval);
+    console.log('C:: ', this.state);
+  }
+
   componentDidMount() {
     this.uidInterval = setInterval(
       () => this.setState({
@@ -20,7 +25,7 @@ class Cycle extends Component {
 
   render() {
     return (
-    <div>{this.state.Interval}</div>
+    <div>{this.state.interval}</div>
     )
   }
 }
