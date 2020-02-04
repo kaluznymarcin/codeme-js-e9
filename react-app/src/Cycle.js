@@ -5,9 +5,14 @@ class Cycle extends Component {
     interval: 1
   }
 
+  constructor(props) {
+    super(props);
+    this.myEl = React.createRef()
+  }
+
   componentDidUpdate(prevProps, prevState) {
-    console.log('P:: ', prevState.interval);
-    console.log('C:: ', this.state);
+    /* console.log('P:: ', prevState.interval);
+    console.log('C:: ', this.state); */
   }
 
   componentDidMount() {
@@ -17,6 +22,9 @@ class Cycle extends Component {
       }),
       1000
     );
+
+    const el = this.myEl.current;
+    el.style.backgroundColor = 'green';
   }
 
   componentWillUnmount() {
@@ -25,7 +33,7 @@ class Cycle extends Component {
 
   render() {
     return (
-    <div>{this.state.interval}</div>
+    <div ref={this.myEl}>{this.state.interval}</div>
     )
   }
 }
