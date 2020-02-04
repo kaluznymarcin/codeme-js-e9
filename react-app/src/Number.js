@@ -5,16 +5,24 @@ class Number extends Component {
     super(props)
 
     this.state = {
-      value: props.value
+      value: props.value,
+      backgroundColor: '#fff'
     }
   }
 
+  handler = () => {
+    this.setState({
+      value: this.state.value + 1,
+      backgroundColor: '#c00'
+    })
+  }
+
   render() {
-    //this.state
+    const { backgroundColor } = this.state
     return (
       <div>
-        <div>{this.state.value}</div>
-        <button onClick={() => this.setState({value: this.state.value + 1})}>up</button>
+        <div style={{backgroundColor}}>{this.state.value}</div>
+        <button onClick={this.handler}>up</button>
         <button onClick={() => this.setState({value: this.state.value - 1})}>down</button>
       </div>
     )
