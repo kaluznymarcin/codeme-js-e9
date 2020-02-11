@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 
 const url = 'http://api.nbp.pl/api/cenyzlota/2020-02-03?format=json';
 
@@ -10,7 +11,7 @@ class Gold extends React.Component {
   }
 
   componentDidMount() {
-    fetch(url)
+    axios.get(url)
       .then(res => res.json())
       .then(data => this.setState({
         apiData: data[0]

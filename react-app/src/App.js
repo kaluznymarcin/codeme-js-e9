@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css';
 
-import Gold from './GoldClassComponent'
+import Number from './Number'
 
 function App() {
   const STYLE = {fontWeight: 'bold', fontSize: '40px'}
   return (
     <div className="App">
-      <Gold />
+      <Number value={5} />
     </div>
   );
 }
