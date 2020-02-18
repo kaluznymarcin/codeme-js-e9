@@ -1,5 +1,7 @@
 import React from 'react';
 import { TODAY_EXCHANGERATES } from '../../constants';
+import { withRouter } from 'react-router-dom';
+
  // Array.isArray(data) ? data : []
 const createList = (data) => ((Array.isArray(data) && data) || []).map(
     ({ code, mid  }, index) => (
@@ -7,7 +9,7 @@ const createList = (data) => ((Array.isArray(data) && data) || []).map(
     )
 );
 
-export default class extends React.Component {
+class Currency extends React.Component {
     state = {
         apiData: null
     }
@@ -27,6 +29,11 @@ export default class extends React.Component {
     }
 
     render() {
+
+        console.log(this.props);
+
         return (<ul>{createList(this.state.apiData)}</ul>)
     }
 }
+
+export default withRouter(Currency);
