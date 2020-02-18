@@ -10,6 +10,7 @@ import Header from './Header';
 import Nav from './Nav';
 import HomePage from './HomePage';
 import Currency from './Currency';
+import CurrencyToday from './CurrencyToday';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       <Nav />
 
       <Switch>
+        <Route path="/waluta/:code">
+          <CurrencyToday />
+        </Route>
         <Route path="/waluty">
           <Currency />
         </Route>

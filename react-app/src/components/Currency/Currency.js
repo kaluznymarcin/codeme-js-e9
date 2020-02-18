@@ -1,11 +1,13 @@
 import React from 'react';
 import { TODAY_EXCHANGERATES } from '../../constants';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
  // Array.isArray(data) ? data : []
 const createList = (data) => ((Array.isArray(data) && data) || []).map(
     ({ code, mid  }, index) => (
-        <li key={`${index}-${code}`}><b>{code}:: </b>{mid}</li>
+        <li key={`${index}-${code}`}>
+            <Link to={`/waluta/${code.toLowerCase()}`}><b>{code}::</b></Link> {mid}
+        </li>
     )
 );
 
@@ -36,4 +38,4 @@ class Currency extends React.Component {
     }
 }
 
-export default withRouter(Currency);
+export default Currency;
