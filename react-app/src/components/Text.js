@@ -1,14 +1,10 @@
 import React from 'react';
 
-const LIMIT = 30;
-
 class Text extends React.Component {
-
   render() {
-
     return (
-      <p className="textWrapper">
-        {this.props.content || this.props.children}
+      <p className="textWrapper" style={{color: this.props.color || 'blue', fontSize: '2em'}}>
+        {this.props.children}
       </p>
     )
   }

@@ -3,6 +3,9 @@ import { CURRENCY_TODAY } from '../../constants';
 import { withRouter } from 'react-router-dom';
 
 import Text from '../Text';
+import withLimitText from '../withLimitText';
+
+const TextLimit = withLimitText(Text);
 
 function fillPath(strUrl = '', params = {}) {
   return Object.entries(params).reduce((str, [name, value]) => {
@@ -33,7 +36,11 @@ class CurrencyToday extends React.Component {
 
         console.log(this.props, this.state);
 
-        return <Text>{JSON.stringify(this.state.apiData)}</Text>
+        return [
+          <TextLimit>{JSON.stringify(this.state.apiData)}</TextLimit>,
+          <Text>hfdsjhfjsdhfjdshfjdhsjf jdsfh djsfh jdshf dhsfjhds jfh</Text>
+        ]
+
     }
 }
 
