@@ -11,26 +11,30 @@ import Nav from './Nav';
 import HomePage from './HomePage';
 import Currency from './Currency';
 import CurrencyToday from './CurrencyToday';
-
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from '../reducers'
 function App() {
   return (
-    <Router>
-      <Header>Moja Aplikacja</Header>
-      <Nav />
+    <Provider store={createStore(reducers)}>
+      <Router>
+        <Header>Moja Aplikacja</Header>
+        <Nav />
 
-      <Switch>
-        <Route path="/waluta/:code">
-          <CurrencyToday />
-        </Route>
-        <Route path="/waluty">
-          <Currency />
-        </Route>
-        {/* <Route path="/" component={HomePage} /> */}
-        <Route path="/">
-          <HomePage />
-        </Route>
-      </Switch>
-    </Router>
+        <Switch>
+          <Route path="/waluta/:code">
+            <CurrencyToday />
+          </Route>
+          <Route path="/waluty">
+            <Currency />
+          </Route>
+          {/* <Route path="/" component={HomePage} /> */}
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 

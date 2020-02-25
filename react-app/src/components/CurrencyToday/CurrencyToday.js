@@ -33,9 +33,7 @@ class CurrencyToday extends React.Component {
     }
 
     render() {
-
         console.log(this.props, this.state);
-
         return [
           <TextLimit>{JSON.stringify(this.state.apiData)}</TextLimit>,
           <Text>hfdsjhfjsdhfjdshfjdhsjf jdsfh djsfh jdshf dhsfjhds jfh</Text>
