@@ -2,7 +2,7 @@ import React from 'react';
 import { CURRENCY_TODAY } from '../../constants';
 import { withRouter } from 'react-router-dom';
 
-import Text from '../Text';
+import Text from '../TextContainer';
 import withLimitText from '../withLimitText';
 
 const TextLimit = withLimitText(Text);
@@ -35,8 +35,8 @@ class CurrencyToday extends React.Component {
     render() {
         console.log(this.props, this.state);
         return [
-          <TextLimit>{JSON.stringify(this.state.apiData)}</TextLimit>,
-          <Text>hfdsjhfjsdhfjdshfjdhsjf jdsfh djsfh jdshf dhsfjhds jfh</Text>
+            <TextLimit>{JSON.stringify(this.state.apiData)}</TextLimit>,
+            <Text>hfdsjhfjsdhfjdshfjdhsjf jdsfh djsfh jdshf dhsfjhds jfh</Text>
         ]
 
     }
