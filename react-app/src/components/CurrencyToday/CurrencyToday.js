@@ -8,9 +8,7 @@ import withLimitText from '../withLimitText';
 const TextLimit = withLimitText(Text);
 
 function fillPath(strUrl = '', params = {}) {
-  return Object.entries(params).reduce((str, [name, value]) => {
-    return str.replace(`:${name}`, value);
-  }, strUrl);
+    return Object.entries(params).reduce((str, [name, value]) => str.replace(`:${name}`, value), strUrl);
 }
 
 class CurrencyToday extends React.Component {
