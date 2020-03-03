@@ -1,3 +1,10 @@
+1. Przejdz do przykładu [Redux Example - ToDo List](https://redux.js.org/basics/example/)
+
+2. wdróż to rozwiązanie do istniejacego projektu
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
