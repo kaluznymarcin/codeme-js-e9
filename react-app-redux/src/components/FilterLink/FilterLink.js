@@ -1,19 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
-const Link = ({ active, children, onClick }) => (
-  <button
-    onClick={onClick}
-    disabled={active}
-    style={{
-      marginLeft: '4px'
-    }}
-  >
-    {children}
-  </button>
+const FilterLink =  ({ active, filter, children, onClick }) => (
+  <Link to={`/${filter}`}>
+    <button
+      disabled={active}
+      style={{
+        marginLeft: '4px'
+      }}
+    >
+      {children}
+    </button>
+  </Link>
 )
 Link.propTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired
 }
-export default Link
+export default FilterLink
