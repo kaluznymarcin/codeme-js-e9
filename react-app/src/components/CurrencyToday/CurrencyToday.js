@@ -5,6 +5,9 @@ import { withRouter } from 'react-router-dom';
 import Text from '../TextContainer';
 import withLimitText from '../withLimitText';
 
+import { connect } from 'react-redux';
+import setCurrencyTodayData from '../../actions/setCurrencyTodayData';
+
 const TextLimit = withLimitText(Text);
 
 function fillPath(strUrl = '', params = {}) {
@@ -17,27 +20,35 @@ class CurrencyToday extends React.Component {
     }
 
     componentDidMount() {
-        fetch(fillPath(CURRENCY_TODAY, this.props.match.params), {
+        !this.props.apiData && fetch(fillPath(CURRENCY_TODAY, this.props.match.params), {
             headers: {
                 Accept: 'application/json'
             }
         })
         .then(res => res.json())
         .then(data => {
-            this.setState({
+            console.log('->>> ', data, this.props);
+            this.props.setData(data);
+            /* this.setState({
                 apiData: data
-            });
+            }); */
         });
     }
 
     render() {
-        console.log(this.props, this.state);
         return [
-            <TextLimit>{JSON.stringify(this.state.apiData)}</TextLimit>,
+            <TextLimit>{JSON.stringify(this.props.apiData)}</TextLimit>,
             <Text>hfdsjhfjsdhfjdshfjdhsjf jdsfh djsfh jdshf dhsfjhds jfh</Text>
         ]
 
     }
 }
 
-export default withRouter(CurrencyToday);
+export default connect(
+    state => ({
+        apiData: state.currencyTodayData
+    }),
+    dispatch => ({
+        setData: data => dispatch(setCurrencyTodayData(data))
+    })
+)(withRouter(CurrencyToday));
