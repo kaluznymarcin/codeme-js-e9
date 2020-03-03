@@ -1,26 +1,38 @@
 (function () {
   const slowa = ['javascript', 'java', 'php', 'elm'];
-  const index = Math.floor(Math.random() * slowa.length);
-  const slowo = slowa[index];
+  const slowo = slowa[Math.floor(Math.random() * slowa.length)];
   let ukryteSlowo = Array.from(slowo, () => '_');
   let liczbaBledow = 5;
+  let licznik = slowo.length;
 
-  //alert('szukane słowo: ' + ukryteSlowo.join(''));
+  while (licznik) {
+    const znak = prompt(`Podaj litere do slowa: ${ukryteSlowo.join(' ')}`);
 
-  //const wpisanaLitera = prompt('Wpisz litere');
-  while (ukryteSlowo.join('') !== slowo) {
-    alert('Slowo: ' + ukryteSlowo.join(''));
-    const wpisanaLitera = prompt('Wpisz litere');
+    if (slowo.indexOf(znak) === -1) {
+      liczbaBledow -= 1;
+      if (liczbaBledow <= 0) {
+        alert('koniec gry - hihihi');
+        return;
+      }
+    } else if (znak && znak.length === 1) {
+      ukryteSlowo = ukryteSlowo.map((element, index) => {
+        if (znak === slowo[index]) {
+          licznik -= 1;
+          return znak;
+        }
 
-    ukryteSlowo = Array.from(
-      slowo,
-      (litera, index) => litera === wpisanaLitera ? litera : ukryteSlowo[index]
-    );
+        return element;
+      });
+    }
 
+    if (licznik === 0) {
+      alert('Jesteś zwycięzcą');
+      return;
+    }
 
-    liczbaBledow -= 1;
+    if (!znak || znak.length > 1) {
+      alert('Nie podałeś znaku lub wpisałeć ciąg kilku znaków\n\nWpisz jeden znak.')
+    }
   }
-
-  console.log(wpisanaLitera);
 }());
 
