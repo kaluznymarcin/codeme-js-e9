@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { TODAY_EXCHANGERATES } from '../../constants';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +12,7 @@ const createList = (data) => ((Array.isArray(data) && data) || []).map(
 );
 
 const Currency = () => {
-
+  return null
 }
 
 export default Currency;
