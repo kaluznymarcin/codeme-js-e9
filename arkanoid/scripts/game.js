@@ -25,7 +25,10 @@
 
   bricks.innerHTML = Array.from(new Array(27), () => {
 
-    const score = [1, 3, 5][Math.floor(Math.random() * 3)]
+    const score = [1, 3, 5]
+    [Math.floor(
+      Math.random() * 3
+    )]
     return `<div class="brick" data-score="${score}"></div>`;
   }).join('');
 
